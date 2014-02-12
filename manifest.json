@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "LabBook",
+  "version": "0.0.1",
+  "permissions": [],
+  "app": {
+    "background": {
+      "scripts": ["main.js"]
+    }
+  },
+  "icons":  
+	{"16": "LabBook16.png", "128": "LabBook128.png" }
+}
