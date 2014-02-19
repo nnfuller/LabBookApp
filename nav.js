@@ -12,6 +12,7 @@ function slideView(target) {
     });
 
 }
+
 function slideBack(target) {
 
 	var $toSlide= $(target),
