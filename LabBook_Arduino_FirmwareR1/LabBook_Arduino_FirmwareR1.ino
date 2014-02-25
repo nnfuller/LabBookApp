@@ -2,12 +2,12 @@ void setup() {
   // initialize serial communication at 115200 bits per second:
   Serial.begin(115200);
 }
-int noisetollerance =25;
-  int aa1=0;
-  int aa2=0;
-  int aa3=0;
-  int aa4=0;
-  int aa5=0;
+int noisetollerance =600;
+  int aa1=analogRead(A0);
+  int aa2=analogRead(A0);
+  int aa3=analogRead(A0);
+  int aa4=analogRead(A0);
+  int aa5=analogRead(A0);
   int errors;
 // the loop routine runs over and over again forever:
 void loop() {
@@ -17,11 +17,12 @@ void loop() {
   aa3 = aa2;
   aa2 = aa1;
   aa1 = analogRead(A0);
-  asum=;
   if (abs((aa1+aa2+aa3+aa4+aa5)/5-aa3)> noisetollerance){
     aa3 = aa4;
     errors = errors+1;
   }
   Serial.print("A");
-  Serial.println(aa5);
+  Serial.print(aa5);
+  Serial.print("T");
+  Serial.println(millis());
 }

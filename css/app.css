@@ -1,0 +1,81 @@
+body {
+	margin: 0px;
+	overflow: hidden;
+	font-size: 14pt;
+	font-family: Helvetica;
+	letter-spacing: -1pt;
+	color: #4d4d4d;
+}
+
+h2 {
+	line-height: 70px;
+	margin: 0px;
+	font-size: 24pt;
+	font-weight: bolder;
+	font-family: Helvetica;
+	letter-spacing: -1pt;
+	color: #4d4d4d
+}
+a:link {
+	color: #4d4d4d;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #4d4d4d;
+	text-decoration: none;
+}
+
+p {
+	margin: 0px;
+}
+
+.pagediv {
+	margin: 0px;
+	padding: 0px;
+	width: 1366px;
+	height: 768px;
+	/*position: absolute;*/
+}
+
+#welcomepage {
+	background-image: url(/img/BackgroundMockup.png);
+	/*left: 0%;*/
+}
+
+.homediv {
+	position: absolute;
+	width: 600px;
+	left: 80px;
+	padding-left: 170px;
+	height: 140px;
+	display: block;
+}
+
+.homediv:hover {
+	background-color:rgba(175,175,175,.5);
+}
+
+#signinpage {
+	background-image: url(/img/Backgroundcgoogle.png);
+	/*left:100%;*/
+}
+
+#setuppage {
+	background-image: url(/img/Backgroundcgoogle.png);
+	/*left:100%;*/
+}
+
+#datapage {
+	background-image: url(/img/Backgroundcgoogle.png);
+	/*left:100%;*/
+}
+
+chart {
+  top:385px;
+  float:right;
+  right:800px;
+  position:relative;
+  width:500px;
+  height:300px;
+}

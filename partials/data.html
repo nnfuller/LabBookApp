@@ -1,0 +1,15 @@
+<div id="datapage" class="pagediv">
+  
+  <a href="#/welcome" ng-click="setDir('back')">
+    <div class="backbutton homediv" style="top: 230px;">
+      <h2>Data Collection Page</h2>
+    </div>
+  </a>
+  
+  <div style="top:300px;left:75%;">{{test}}</div>
+  
+  <button ng-click="setData()">Plot</button>
+  
+  <chart ng-model="data"></chart>
+  
+</div>

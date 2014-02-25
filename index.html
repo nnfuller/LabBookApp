@@ -1,70 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="labbookApp">
 <head>
+
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Welcome to LabBook</title>
-    <script src="jquery-1.11.0.min.js"></script>
-    <script src="nav.js"></script>
-    <STYLE TYPE="text/css">
-<!--
-H2 {font-size: 24pt; font-weight: bolder; font-family: Helvetica;letter-spacing: -1pt;color: #4d4d4d}
-BODY {font-size: 14pt; font-family: Helvetica;letter-spacing: -1pt;color: #4d4d4d}
-A:link {color: #4d4d4d;text-decoration: none}
-A:visited {color: #4d4d4d;text-decoration: none}
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/animations.css">
 
--->
-</STYLE>
+    <script src="/lib/jquery/jquery-1.11.0.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular/angular-route.min.js"></script>
+    <script src="/lib/angular/angular-animate.min.js"></script>
+    <script src="/lib/flot/jquery.flot.js"></script>
+    
+    <script src="/js/app.js"></script>
+    <script src="/js/services.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/js/directives.js"></script>
+
 </head>
-<body>
+<body ng-controller="MainCtrl">
+	
+    <style ng-bind="style"></style>
 
-	<div id="welcomepage" class="pagediv active">
-
-		<a href="#">
-			<div class="homediv" id="signinlink" style="top: 235px;">
-				<h2>Sign in with your Google Account</h2>
-				<p>This lets you store your LabBook data on the cloud, as well as collaborate on reports with other team members.</p>
-			</div>
-		</a>
-
-		<a href="#">
-			<div class="homediv" id="setuplink" style="top: 385px;">
-				<h2>Connect your LabBook Kit</h2>
-				<p>This allows you to gather data with any sensor connected to the Arduino board.</p>
-			</div>
-		</a>
-
-		<a href="#">
-			<div class="homediv" id="datalink" style="top: 535px;">
-				<h2>Collect and Visualize Data</h2>
-				<p>Collect data and analyze either inside LabBook or using Google Drive Spreadsheets.</p>
-			</div>
-		</a>
-
-	</div>
-
-	<div id="signinpage" class="pagediv">
-
-		<div class="backbutton homediv" style="top: 230px;">
-			<h2>Sign-In Page</h2>
-		</div>
-
-	</div>
-
-	<div id="setuppage" class="pagediv">
-
-		<div class="backbutton homediv" style="top: 230px;">
-			<h2>Setup Page</h2>
-		</div>
-
-	</div>
-
-	<div id="datapage" class="pagediv">
-
-		<div class="backbutton homediv" style="top: 230px;">
-			<h2>Data Collection Page</h2>
-		</div>
-
+	<div class="view-container">
+		<div ng-view class="view-animate"></div>
 	</div>
 
 </body>
