@@ -5,7 +5,8 @@
 var labbookApp = angular.module('labbookApp', [
   'ngRoute',
   'ngAnimate',
-  /*'labbookAnimations',*/
+  'labbookDirectives',
+  'labbookServices',
   'labbookControllers'
 ]);
 

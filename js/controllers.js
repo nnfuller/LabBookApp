@@ -42,7 +42,10 @@ labbookControllers.controller('SetUpCtrl', ['$scope',
     
   }]);
 
-labbookControllers.controller('DataCtrl', ['$scope',
-  function($scope) {
-    
+labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
+  function($scope, Serial) {
+    $scope.data = [Serial.dataList];
+    $scope.setData = function() {
+      Serial.start(150);
+    }
   }]);
