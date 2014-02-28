@@ -38,12 +38,6 @@ p {
 	/*position: absolute;*/
 }
 
-nav {
-	padding-top: 15px;
-	margin-bottom: 10px;
-	width: 100%;
-}
-
 .close-button {
 	padding: 2px 5px 0 5px;
 	font-weight: bold;
