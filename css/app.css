@@ -38,6 +38,23 @@ p {
 	/*position: absolute;*/
 }
 
+nav {
+	padding-top: 15px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+nav:hover .close-button {
+	opacity: 1;
+}
+
+.close-button {
+	padding: 0 5px 2px 5px;
+	font-weight: bold;
+	opacity: 0;
+	transition: all 0.3s ease-in-out;
+}
+
 #welcomepage {
 	background-image: url(/img/BackgroundMockup.png);
 	/*left: 0%;*/

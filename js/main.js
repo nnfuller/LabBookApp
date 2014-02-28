@@ -7,6 +7,7 @@ chrome.app.runtime.onLaunched.addListener(function() {
   chrome.app.window.create('index.html', {
     width: 1366,
     height: 768,
+    frame: 'none'
   });
   chrome.permissions.request({
   });
