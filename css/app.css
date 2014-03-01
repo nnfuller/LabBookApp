@@ -38,6 +38,11 @@ p {
 	/*position: absolute;*/
 }
 
+.close-button {
+	padding: 2px 5px 0 5px;
+	font-weight: bold;
+}
+
 #welcomepage {
 	background-image: url(/img/BackgroundMockup.png);
 	/*left: 0%;*/
