@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="labbookApp">
+<head>
+
+    <meta charset="utf-8">
+    <title>Welcome to LabBook</title>
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/animations.css">
+
+    <script src="/lib/jquery/jquery-1.11.0.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular/angular-route.min.js"></script>
+    <script src="/lib/angular/angular-animate.min.js"></script>
+    <script src="/lib/flot/jquery.flot.js"></script>
+    
+    <script src="/js/app.js"></script>
+    <script src="/js/services.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/js/directives.js"></script>
+
+</head>
+<body ng-controller="MainCtrl">
+	
+    <style ng-bind="style"></style>
+
+	<div class="view-container">
+		<div ng-view class="view-animate"></div>
+	</div>
+
+</body>
+</html>

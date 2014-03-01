@@ -1,0 +1,33 @@
+<div id="datapage" class="pagediv">
+	<div class="logo">
+		<img src="\img\Labbook Logo.svg" />
+	</div>
+	<div class="toprightbardiv">
+		<a href="#/welcome" ng-click="setDir('back')">
+ 			<img src="\img\Back.svg" style="position: absolute; right:0px; height:75px; width:auto;" />
+		</a>
+	</div>
+	<div style="top:300px;left:75%;">{{test}}</div>
+	<div class="basictablediv">
+  		<div style="
+  		position:absolute;
+		right: 0px;
+		top:0px;
+    	width: 300px;
+    	height: 40px;
+    	background-color:#e52a20;">
+  		</div>
+  	</div>
+	<button class="button" id="collectbutton" ng-click="setData()">
+		Plot
+	</button>
+  	<div class="graphdatadiv" style="top:600px; left:60px;">
+		<h3> 
+			3.6V
+		</h3>
+	</div>
+	<button class="button" id="sensorbutton">
+		Configure Sensor
+	</button>
+	<chart ng-model="data"></chart>
+</div>
