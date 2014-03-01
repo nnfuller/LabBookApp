@@ -14,7 +14,16 @@ h2 {
 	font-weight: bolder;
 	font-family: Helvetica;
 	letter-spacing: -1pt;
-	color: #4d4d4d
+	color: #4d4d4d;
+}
+h3 {
+	line-height: 50px;
+	margin: 25px;
+	font-size: 48pt;
+	font-weight: bolder;
+	font-family: Harabara;
+	letter-spacing: 1pt;
+	color: #e52a20;
 }
 a:link {
 	color: #4d4d4d;
@@ -29,7 +38,11 @@ a:visited {
 p {
 	margin: 0px;
 }
-
+@font-face
+{
+font-family: Harabara;
+src: url('Harabara.ttf');
+}
 .pagediv {
 	margin: 0px;
 	padding: 0px;
@@ -37,50 +50,137 @@ p {
 	height: 768px;
 	/*position: absolute;*/
 }
-
-.close-button {
-	padding: 2px 5px 0 5px;
-	font-weight: bold;
-}
-
 #welcomepage {
-	background-image: url(/img/BackgroundMockup.png);
+	background-image: url(/img/Labbookbackground.svg);
+	background-size: 100%;
 	/*left: 0%;*/
 }
-
+.logo {
+	position: absolute;
+	top:15px;
+	width: 300px;
+	left: 10px;
+	height: 75px;
+}
 .homediv {
 	position: absolute;
-	width: 600px;
-	left: 80px;
-	padding-left: 170px;
-	height: 140px;
+	top:250px;
+	width: 650px;
+	left: 700px;
+	height: 275px;
 	display: block;
 }
-
-.homediv:hover {
+.icon {
+	padding: 20px;
+	vertical-align: top;
+}
+.icon:hover {
+  opacity: .8;
+}
+.svgbutton {
+	height: 600px;
+	width: auto;
+}
+.homegraphdiv {
+	position: absolute;
+	top:125px;
+	width: 500px;
+	left: 100px;
+	height: 600px;
+	display: block;
 	background-color:rgba(175,175,175,.5);
 }
+.graphdatadiv {
+	position:absolute;
+    width: 452px;
+	height: 100px;
+	margin:20px;
+	border-color:rgba(175,175,175,1);
+	border:4px solid;
+	background-color:rgba(250,250,250,1);
+	border-radius:2px;
+}
+.toprightbardiv {
+	position:absolute;
+	right: 0px;
+	top:0px;
+    width: 150px;
+	height: 60px;
+	margin:15px;
+	background-color:rgba(202,131,131,0);
+}
+.basictablediv {
+	position:absolute;
+	right: 20px;
+	top:150px;
+    width: 300px;
+	height: 500px;
+	margin:15px;
+	background-color:rgba(250,250,250,1);
+	border-color:rgba(175,175,175,1);
+	border:1px solid;
+	border-radius:2px;
+}
+.button {
+	border:2px solid;
+	border-color:#e52a20;
+	background-color:#e52a20;
+	border-radius:2px;
+	font-size: 12pt;
+	font-weight: bolder;
+	font-family: Harabara;
+	letter-spacing: 0pt;
+	color: white;
+}
+.button:hover {
+	border-color:#ffffff;
+	/*box-shadow: 0px 2px 2px #888888;*/
+}
+.button:active {
+	background-color:#d5190d;
+	border-color:#831510;
+}
+#collectbutton.button {
+	position:absolute;
+	right: 375px;
+	top:150px;
+    width: 100px;
+	height: 40px;
+	margin:15px;
+
+}
+#sensorbutton.button {
+	position:absolute;
+	left: 600px;
+	top:630px;
+    width: 220px;
+	height: 60px;
+	margin:15px;
+}
+/*.homediv:hover {
+	background-color:rgba(175,175,175,.5);
+}*/
 
 #signinpage {
-	background-image: url(/img/Backgroundcgoogle.png);
+	background-image: url(/img/Labbookbackground.svg) ;
 	/*left:100%;*/
 }
 
 #setuppage {
-	background-image: url(/img/Backgroundcgoogle.png);
+	background-image: url(/img/Labbookbackground.svg);
 	/*left:100%;*/
 }
 
 #datapage {
-	background-image: url(/img/Backgroundcgoogle.png);
+	background-image: url(/img/Labbookbackground.svg);
 	/*left:100%;*/
 }
 
 chart {
-  top:385px;
-  float:right;
-  right:800px;
+  top:150px;
+  float:left;
+  left:50px;
   position:relative;
-  width:500px;
-  height:300px;
+  width:800px;
+  height:450px;
 }

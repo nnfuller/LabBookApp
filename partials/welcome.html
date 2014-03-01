@@ -1,26 +1,28 @@
 <div id="welcomepage" class="pagediv active">
+ <div class="logo">
+<img src="\img\Labbook Logo.svg" >
+</div>
 
-	<button class="close-button" ng-click="close()" title="Close">x</button>
-
-	<a href="#/signin" ng-click="setDir('front')">
-		<div class="homediv" id="signinlink" style="top: 235px;">
-			<h2>Sign in with your Google Account</h2>
-			<p>This lets you store your LabBook data on the cloud, as well as collaborate on reports with other team members.</p>
-		</div>
-	</a>
-
-	<a href="#/setup" ng-click="setDir('front')">
-		<div class="homediv" id="setuplink" style="top: 385px;">
-			<h2>Connect your LabBook Kit</h2>
-			<p>This allows you to gather data with any sensor connected to the Arduino board.</p>
-		</div>
-	</a>
-
+ <div class="homediv">
 	<a href="#/data" ng-click="setDir('front')">
-		<div class="homediv" id="datalink" style="top: 535px;">
-			<h2>Collect and Visualize Data</h2>
-			<p>Collect data and analyze either inside LabBook or using Google Drive Spreadsheets.</p>
-		</div>
+		<img src="\img\CollectICOop.svg" class="icon" >
 	</a>
+	<a href="#/setup" ng-click="setDir('front')">
+		<img src="\img\Analyze.svg" class="icon" >
+	</a>
+	<a href="#/setup" ng-click="setDir('front')">
+		<img src="\img\Settings.svg" class="icon" >
+	</a>
+	</div>
+	<div class="homegraphdiv">
+		<h2 style="position: absolute; left:10px;">
+			Current Data
+		</h2>
+		<div class="graphdatadiv" style="bottom:0px;">
+			<h3> 
+				3.6V
+			</h3>
+		</div>
+	</div>
 
 </div>
