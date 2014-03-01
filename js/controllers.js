@@ -25,6 +25,10 @@ labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
 
     }
 
+    $scope.close = function() {
+      window.close();
+    }
+
   }]);
 
 labbookControllers.controller('WelcomeCtrl', ['$scope',
