@@ -50,6 +50,10 @@ src: url('Harabara.ttf');
 	height: 768px;
 	/*position: absolute;*/
 }
+.close-button {
+	padding: 2px 5px 0 5px;
+	font-weight: bold;
+}
 #welcomepage {
 	background-image: url(/img/Labbookbackground.svg);
 	background-size: 100%;
