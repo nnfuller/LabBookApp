@@ -128,6 +128,8 @@ src: url('Harabara.ttf');
 	top:150px;
     width: 300px;
 	height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 	margin:15px;
 	background-color:rgba(250,250,250,1);
 	border-color:rgba(175,175,175,1);
@@ -144,7 +146,7 @@ src: url('Harabara.ttf');
 }
 .basicconfigurediv {
 	position:relative;
-	top:35px;
+	top:0px;
     margin: 0 auto;
 	height:650px;
 	width:1100px;
@@ -258,4 +260,22 @@ chart {
   position:relative;
   width:800px;
   height:425px;
+}
+
+#datatable {
+  width: 285px;
+  border-collapse: collapse;
+}
+
+#datatable th {
+  color: #ffffff;
+  background-color: #e52a20;
+  border: 1px solid #e52a20;
+  border-left: none;
+}
+
+#datatable td {
+  border: 1px solid #000000;
+  border-left: none;  
+  background-color: #ffffff;
 }

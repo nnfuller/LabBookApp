@@ -10,6 +10,7 @@ labbookServices.factory('Serial', ['$rootScope', function($rootScope){
       dataList = [],
       savedConnectionID = -1,
       stringReceived = '',
+      lastValue = 0,
       temp = [];
   
   //Initialize communication with a given datalength.
@@ -31,12 +32,13 @@ labbookServices.factory('Serial', ['$rootScope', function($rootScope){
   // The serial port has been opened. Save its id to use later.
   var onConnect = function(connectionInfo) {
     savedConnectionID = connectionInfo.connectionId;
+    chrome.serial.flush(savedConnectionID);
   }
   
   //We're ready to bid our friend adieu. Wrap it up.
   var onDisconnect = function(result) {
     if (result) {
-      console.log("Disconnected from the serial port")
+      console.log("Disconnected from the serial port");
     } else {
       console.log("Disconnect failed");
     }
@@ -44,27 +46,24 @@ labbookServices.factory('Serial', ['$rootScope', function($rootScope){
   
   //Listen on our serial port and handle the input.
   var onReceiveCallback = function(info) {
+      
+    //Convert an array buffer to a string.
+    var str = String.fromCharCode.apply(null, new Uint8Array(info.data));
     
-    if (info.data) {
-      
-      //Convert an array buffer to a string.
-      var str = String.fromCharCode.apply(null, new Uint8Array(info.data));
-      
-      //Break our string into pieces along newlines and output an array of string partials.
-      if (str.charAt(str.length-1) === '\n') {
-        stringReceived += str.substring(0, str.length-1);
-        var split = stringReceived.split("T");
-        temp = [parseInt(split[1]), parseInt(split[0].substring(1))];
-        stringReceived = '';
-        $rootScope.$apply(function() {
-            dataList.push(temp);
-        });
-        if (dataList.length == dataLength) {
-          chrome.serial.disconnect(info.connectionId, onDisconnect);
-        }   
-      } else {
-        stringReceived += str;
-      }
+    //Break our string into pieces along newlines and output an array of string partials.
+    if (str.charAt(str.length-1) === '\n') {
+      stringReceived += str.substring(0, str.length-1);
+      var split = stringReceived.split("T");
+      temp = [parseInt(split[1]), parseInt(split[0].substring(1))];
+      stringReceived = '';
+      $rootScope.$apply(function() {
+        dataList.push(temp);
+      });
+      if (dataList.length == dataLength) {
+        chrome.serial.disconnect(info.connectionId, onDisconnect);
+      }   
+    } else {
+      stringReceived += str;
     }
   }
   

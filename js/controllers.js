@@ -49,6 +49,19 @@ labbookControllers.controller('SetUpCtrl', ['$scope',
 labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
   function($scope, Serial) {
     $scope.data = [Serial.dataList];
+    $scope.points = [];
+    $scope.$watch('data', function(v) {
+      $scope.points.push(v[0][v[0].length-1]);
+    }, true);
+    $scope.lastValue = 0;
+
+    $scope.menushow =false;
+    $scope.showMenu = function() {
+      $scope.menushow = true;
+    }
+    $scope.hideMenu = function() {
+      $scope.menushow = false;
+    }
     $scope.setData = function() {
       Serial.start(150);
     }
