@@ -6,7 +6,9 @@ body {
 	letter-spacing: -1pt;
 	color: #4d4d4d;
 }
-
+h1 {
+	margin:0px;
+}
 h2 {
 	line-height: 70px;
 	margin: 0px;
@@ -93,15 +95,17 @@ src: url('Harabara.ttf');
 .homegraphdiv {
 	position: absolute;
 	top:125px;
-	width: 500px;
-	left: 100px;
-	height: 600px;
+	width: 550px;
+	left: 75px;
+	height: 550px;
 	display: block;
 	background-color:rgba(175,175,175,.5);
+	border-radius:2px;
+
 }
 .graphdatadiv {
 	position:absolute;
-    width: 452px;
+    width: 502px;
 	height: 100px;
 	margin:20px;
 	border-color:rgba(175,175,175,1);
@@ -124,6 +128,7 @@ src: url('Harabara.ttf');
 	top:150px;
     width: 300px;
 	height: 500px;
+    overflow-y: scroll;
 	margin:15px;
 	background-color:rgba(250,250,250,1);
 	border-color:rgba(175,175,175,1);
@@ -134,10 +139,71 @@ src: url('Harabara.ttf');
 	position:absolute;
 	left:0px;
 	top:0px;
-	width:1366;
-	height:720;
+	width:1366px;
+	height:720px;
 	background-color:rgba(75,75,75,.5);
-
+}
+.basicconfigurediv {
+	position:relative;
+	top:0px;
+    margin: 0 auto;
+	height:650px;
+	width:1100px;
+	background-color:rgba(250,250,250,1);
+	border-radius:2px;
+}
+.daq {
+	position: absolute;
+	height:auto;
+	width:250px;
+	right:75px;
+	top:100px;
+}
+.portselectdiv{
+	position:absolute;
+	width:400px;
+	height:400px;
+	margin:30px;
+	top:75px;
+	right:0px;
+	background-color: rgba(75,75,75,.3);
+	border-radius:2px;
+}
+.sensorselectdiv{
+	position:absolute;
+	width: 600px;
+	height:400px;
+	margin:30px;
+	top:75px;
+	left:0px;
+	background-color: rgba(75,75,75,.3);
+	border-radius:2px;;
+}
+.sensorselect{
+	position:absolute;
+	width: 300px;
+	height:75px;
+	margin:30px;
+	top:75px;
+	left:0px;
+	font-size: 24pt;
+	font-weight: bolder;
+	font-family: Helvetica;
+	letter-spacing: -1pt;
+	color: #4d4d4d;
+}
+.unitselect{
+	position:absolute;
+	width: 100px;
+	height:75px;
+	margin:30px;
+	top:75px;
+	right:0px;
+	font-size: 24pt;
+	font-weight: bolder;
+	font-family: Helvetica;
+	letter-spacing: -1pt;
+	color: #4d4d4d;
 }
 .button {
 	border:2px solid;
@@ -158,6 +224,10 @@ src: url('Harabara.ttf');
 	background:-webkit-linear-gradient(#b31d15,#e22d24,#b31d15);
 	border-color:#8a1610;
 }
+#bigradio{
+	width:40px;
+	height:40px;
+}
 #collectbutton.button {
 	position:absolute;
 	right: 375px;
@@ -170,7 +240,7 @@ src: url('Harabara.ttf');
 #sensorbutton.button {
 	position:absolute;
 	left: 600px;
-	top:630px;
+	top:580px;
     width: 220px;
 	height: 60px;
 	margin:15px;
@@ -194,11 +264,30 @@ src: url('Harabara.ttf');
 	/*left:100%;*/
 }
 
+}
 chart {
-  top:150px;
+  top:125px;
   float:left;
   left:50px;
   position:relative;
   width:800px;
-  height:450px;
+  height:425px;
+}
+
+#datatable {
+  width: 285px;
+  border-collapse: collapse;
+}
+
+#datatable th {
+  color: #ffffff;
+  background-color: #e52a20;
+  border: 1px solid #e52a20;
+  border-left: none;
+}
+
+#datatable td {
+  border: 1px solid #000000;
+  border-left: none;  
+  background-color: #ffffff;
 }

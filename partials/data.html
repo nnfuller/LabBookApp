@@ -1,4 +1,7 @@
 <div id="datapage" class="pagediv">
+	
+	</div>
+
 	<div class="logo">
 		<img src="\img\Labbook Logo.svg" />
 	</div>
@@ -10,30 +13,69 @@
 	</div>
 	<div style="top:300px;left:75%;">{{test}}</div>
 	<div class="basictablediv">
-  		<div style="
+
+  		<!--<div style="
   		position:absolute;
 		right: 0px;
 		top:0px;
     	width: 300px;
     	height: 40px;
     	background:-webkit-linear-gradient(#e52a20,#ce2118);">
-  		</div>
+  		</div>-->
+  		<table id="datatable">
+        	<tr>
+        		<th>Time</th>
+        		<th>Value</th>
+        	</tr>
+        	<tr ng-repeat="point in points">
+          		<td>{{point[0]}}</td>
+          		<td>{{point[1]}}</td>
+        	</tr>
+      	</table>
   	</div>
+
 	<button class="button" id="collectbutton" ng-click="setData()">
 		Plot
 	</button>
-  	<div class="graphdatadiv" style="top:600px; left:60px;">
+  	<div class="graphdatadiv" style="top:550px; left:60px;">
 		<h3> 
-			3.6V
+			{{lastValue}}
 		</h3>
 	</div>
-	<button class="button" id="sensorbutton">
+	<button class="button" id="sensorbutton" ng-click="showMenu()">
 		Configure Sensor
 	</button>
 
 	<chart ng-model="data"></chart>
-	<div class="greyout">
-	</div>
+<div class="greyout" ng-show="menushow">
+	<div class="basicconfigurediv">
+		<h1 style="margin:30px;"><br>Sensor Configure</h1>
+		<img src="\img\Close.svg" class="close-button" title="Close"ng-click="hideMenu()">
+		<div class="portselectdiv">
+		<h2 style="text-indent:20px;"> Select Port: </h2>
+			<input type="radio" name="basicSensor" value="1"style="position:absolute; top: 265px;left: 20px;" id="bigradio" checked>
+			<input type="radio" name="basicSensor" value="2"style="position:absolute; top: 205px;left: 20px;"id="bigradio">
+			<input type="radio" name="basicSensor" value="3"style="position:absolute; top: 145px;left: 20px;"id="bigradio">
+			<input type="radio" name="basicSensor" value="4" style="position:absolute; top: 265px; right:20px;"id="bigradio">
+			<input type="radio" name="basicSensor" value="5"style="position:absolute; top: 205px; right:20px;"id="bigradio">
+			<input type="radio" name="basicSensor" value="6"style="position:absolute; top: 145px; right:20px;"id="bigradio">
+			<input type="radio" name="basicSensor" value="A"style="position:absolute; top: 50px; left:120px;"id="bigradio">
+			<input type="radio" name="basicSensor" value="B"style="position:absolute; top: 50px; right:115px;"id="bigradio">
+			<img src="\img\DAQ.svg" class="daq">
+		</div>
+		<div class="sensorselectdiv">
+			<select name="sensortype" class="sensorselect">
+ 				<option value="volt">none(voltage)</option>
+ 				<option value="temp">Temperature</option>
+  				<option value="dist">Distance</option>
+ 				<option value="force">Force</option>
+ 				<option value="press">Pressure</option>
+ 				<option value="gate">Light Gate</option>
+			</select>
+			<select class="unitselect" name="vunits">
+				<option value="V">V</option>
+ 				<option value="mV">mV</option>
+			</select>
+		</div>
+  	</div>
 </div>
-<div class="greyout">
-	</div>
