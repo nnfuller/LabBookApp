@@ -64,15 +64,15 @@
 			<img src="\img\DAQ.svg" class="daq">
 		</div>
 		<div class="sensorselectdiv">
-			<select name="sensortype" class="sensorselect">
- 				<option value="volt">none(voltage)</option>
+			<select name="sensortype" class="sensorselect"ng-model="sensorType">
+ 				<option value="volt">none(voltage) </option>
  				<option value="temp">Temperature</option>
   				<option value="dist">Distance</option>
  				<option value="force">Force</option>
  				<option value="press">Pressure</option>
  				<option value="gate">Light Gate</option>
 			</select>
-			<select class="unitselect" name="vunits">
+			<select class="unitselect" name="vunits" ng-model="vunits">
 				<option value="V">V</option>
  				<option value="mV">mV</option>
 			</select>

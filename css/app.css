@@ -264,12 +264,11 @@ src: url('Harabara.ttf');
 	/*left:100%;*/
 }
 
-}
 chart {
   top:125px;
   float:left;
   left:50px;
-  position:relative;
+  position:absolute;
   width:800px;
   height:425px;
 }

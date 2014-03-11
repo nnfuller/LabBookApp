@@ -56,7 +56,6 @@ labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
     $scope.menushow =false;
     $scope.showMenu = function() {
       $scope.menushow = true;
-      consolelog("hello");
     }
     $scope.hideMenu = function() {
       $scope.menushow = false;
