@@ -7,6 +7,8 @@ var labbookControllers = angular.module('labbookControllers', []);
 labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
   function($scope, $rootScope) {
     
+    //chrome.app.window.current().fullscreen();
+    
     var styles = {
 
       //slide from right
