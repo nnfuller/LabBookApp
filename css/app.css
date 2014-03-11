@@ -49,7 +49,7 @@ src: url('Harabara.ttf');
 	margin: 0px;
 	padding: 0px;
 	width: 1366px;
-	height: 768px;
+	height: 720px;
 	/*position: absolute;*/
 }
 .close-button {
@@ -264,12 +264,11 @@ src: url('Harabara.ttf');
 	/*left:100%;*/
 }
 
-}
 chart {
   top:125px;
   float:left;
   left:50px;
-  position:relative;
+  position:absolute;
   width:800px;
   height:425px;
 }
