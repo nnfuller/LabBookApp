@@ -55,6 +55,14 @@ labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
     $scope.lastValue = 0;
     $scope.menushow =false;
     $scope.sensorType="volt";
+    $scope.tCalib="32.0";
+    $scope.vUnit = "V";
+    $scope.tUnit = "C";
+    $scope.dUnit = "m";
+    $scope.fUnit = "N";
+    $scope.pUnit = "Pa";
+    $scope.gUnit = "sec";
+
     $scope.showMenu = function() {
       $scope.menushow = true;
     }

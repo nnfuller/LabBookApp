@@ -177,7 +177,7 @@ src: url('Harabara.ttf');
 	top:75px;
 	left:0px;
 	background-color: rgba(75,75,75,.3);
-	border-radius:2px;;
+	border-radius:2px;
 }
 .sensorselect{
 	position:absolute;
@@ -191,6 +191,7 @@ src: url('Harabara.ttf');
 	font-family: Helvetica;
 	letter-spacing: -1pt;
 	color: #4d4d4d;
+	border-radius:2px;
 }
 .unitselect{
 	position:absolute;
@@ -204,6 +205,7 @@ src: url('Harabara.ttf');
 	font-family: Helvetica;
 	letter-spacing: -1pt;
 	color: #4d4d4d;
+	border-radius:2px;
 }
 .calibdiv{
 	position:absolute;
