@@ -52,7 +52,7 @@
 		<h1 style="margin:30px;"><br>Sensor Configure</h1>
 		<img src="\img\Close.svg" class="close-button" title="Close"ng-click="hideMenu()">
 		<div class="portselectdiv">
-		<h2 style="text-indent:20px;"> Select Port: </h2>
+		<h2 style="text-indent:20px;">Port: </h2>
 			<input type="radio" name="basicSensor" value="1"style="position:absolute; top: 265px;left: 20px;" id="bigradio" checked>
 			<input type="radio" name="basicSensor" value="2"style="position:absolute; top: 205px;left: 20px;"id="bigradio">
 			<input type="radio" name="basicSensor" value="3"style="position:absolute; top: 145px;left: 20px;"id="bigradio">
@@ -64,18 +64,71 @@
 			<img src="\img\DAQ.svg" class="daq">
 		</div>
 		<div class="sensorselectdiv">
-			<select name="sensortype" class="sensorselect">
- 				<option value="volt">none(voltage)</option>
+			<select name="sensortype" class="sensorselect" ng-model="sensorType">
+ 				<option value="volt" selected="selected">none(voltage)</option>
  				<option value="temp">Temperature</option>
   				<option value="dist">Distance</option>
  				<option value="force">Force</option>
  				<option value="press">Pressure</option>
  				<option value="gate">Light Gate</option>
 			</select>
-			<select class="unitselect" name="vunits">
-				<option value="V">V</option>
+			<select class="unitselect" ng-show="vShow"ng-model="vUnit">
+				<option value="V" selected="selected">V</option>
  				<option value="mV">mV</option>
 			</select>
+			<select class="unitselect" ng-show="tShow"ng-model="tUnit">
+				<option value="C" selected="selected">&deg;C</option>
+ 				<option value="F">&deg;F</option>
+ 				<option value="K">&deg;K</option>
+			</select>
+			<select class="unitselect" ng-show="dShow"ng-model="dUnit">
+				<option value="m" selected="selected">m</option>
+ 				<option value="cm">cm</option>
+ 				<option value="in">in.</option>
+ 				<option value="ft">ft.</option>
+			</select>
+			<select class="unitselect" ng-show="fShow"ng-model="fUnit">
+				<option value="N" selected="selected">N</option>
+ 				<option value="lbs">lbs.</option>
+			</select>
+			<select class="unitselect" ng-show="pShow"ng-model="pUnit">
+				<option value="Pa" selected="selected">Pa(N/m<sup>2</sup>)</option>
+ 				<option value="psi">psi</option>
+ 				<option value="atm">atm</option>
+			</select>
+			<select class="unitselect" ng-show="gShow"ng-model="gUnit">
+				<option value="sec" selected="selected">sec</option>
+ 				<option value="min">min</option>
+			</select>
 		</div>
+			<div class="calibdiv"ng-show="vShow">
+			<p>Choose A Sensor Type Above</p>
+			</div>
+			<div class="calibdiv"ng-show="tShow">
+			<br>
+			<p>Enter Current Temperature Below</p>
+			<input type="text" ng-model="tCalib"> in &deg;{{tUnit}}
+			</div>
+			<div class="calibdiv"ng-show="dShow">
+			<br>
+			<p>No Calibration Needed</p>
+			</div>
+			<div class="calibdiv"ng-show="fShow">
+			<br>
+			<p>Enter Current Force Below</p>
+			<br>
+			<input type="text" ng-model="fCalib"> in {{fUnit}}
+			</div>
+			<div class="calibdiv"ng-show="pShow">
+			<br>
+			<p>Enter Current Pressure Below</p>
+			<br>
+			<input type="text" ng-model="pCalib"> in {{pUnit}}
+			</div>
+			<div class="calibdiv"ng-show="gShow">
+			<br>
+			<p>Enter Distace Between Gates Below</p>
+			<input type="text" ng-model="gCalib"> in {{gUnit}}
+			</div>
   	</div>
 </div>

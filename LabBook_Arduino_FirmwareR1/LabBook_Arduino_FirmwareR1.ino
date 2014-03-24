@@ -25,4 +25,5 @@ void loop() {
   Serial.print(aa5);
   Serial.print("T");
   Serial.println(millis());
+  delay(250);
 }

@@ -54,9 +54,17 @@ labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
     }, true);
     $scope.lastValue = 0;
     $scope.menushow =false;
+    $scope.sensorType="volt";
+    $scope.tCalib="32.0";
+    $scope.vUnit = "V";
+    $scope.tUnit = "C";
+    $scope.dUnit = "m";
+    $scope.fUnit = "N";
+    $scope.pUnit = "Pa";
+    $scope.gUnit = "sec";
+
     $scope.showMenu = function() {
       $scope.menushow = true;
-      consolelog("hello");
     }
     $scope.hideMenu = function() {
       $scope.menushow = false;
@@ -64,4 +72,30 @@ labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
     $scope.setData = function() {
       Serial.start(150);
     }
+    $scope.$watch('sensorType', function() {
+      $scope.vShow = false;
+      $scope.tShow = false;
+      $scope.dShow = false;
+      $scope.fShow = false;
+      $scope.pShow = false;
+      $scope.gShow = false;
+      if($scope.sensorType =="volt"){
+      $scope.vShow = true;
+      }
+      if($scope.sensorType =="temp"){
+      $scope.tShow = true;
+      }
+      if($scope.sensorType =="dist"){
+      $scope.dShow = true;
+      }
+      if($scope.sensorType =="force"){
+      $scope.fShow = true;
+      }
+      if($scope.sensorType =="press"){
+      $scope.pShow = true;
+      }
+      if($scope.sensorType =="gate"){
+      $scope.gShow = true;
+      }
+    }, true);
   }]);
