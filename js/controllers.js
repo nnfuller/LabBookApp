@@ -4,8 +4,10 @@
 
 var labbookControllers = angular.module('labbookControllers', []);
 
-labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
-  function($scope, $rootScope) {
+labbookControllers.controller('MainCtrl', ['$scope', '$rootScope', 'Serial',
+  function($scope, $rootScope, Serial) {
+    
+    chrome.app.window.current().maximize();
     
     var styles = {
 
@@ -45,23 +47,25 @@ labbookControllers.controller('SetUpCtrl', ['$scope',
   function($scope) {
     
   }]);
-labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
-  function($scope, Serial) {
-    $scope.data = [Serial.dataList];
-    $scope.points = [];
-    $scope.$watch('data', function(v) {
-      $scope.points.push(v[0][v[0].length-1]);
-    }, true);
-    $scope.lastValue = 0;
-    $scope.menushow =false;
+labbookControllers.controller('DataCtrl', ['$scope',
+  function($scope) {
+    //$scope.data = [];
+    //$scope.points = [];
+    //$scope.$watch('data', function(v) {
+    //  $scope.points.push(v[0][v[0].length-1]);
+    //}, true);
+    var port = chrome.runtime.connect({name: "serial"});
+    chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+      $scope.$apply(function () {
+        $scope.lastValue = parseInt(msg.split('T')[0].slice(1));
+      });
+    });
+    $scope.menushow = false;
     $scope.showMenu = function() {
       $scope.menushow = true;
       consolelog("hello");
     }
     $scope.hideMenu = function() {
       $scope.menushow = false;
-    }
-    $scope.setData = function() {
-      Serial.start(150);
     }
   }]);
