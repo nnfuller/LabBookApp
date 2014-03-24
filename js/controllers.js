@@ -4,8 +4,8 @@
 
 var labbookControllers = angular.module('labbookControllers', []);
 
-labbookControllers.controller('MainCtrl', ['$scope', '$rootScope', 'Serial',
-  function($scope, $rootScope, Serial) {
+labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
+  function($scope, $rootScope) {
     
     chrome.app.window.current().maximize();
     
