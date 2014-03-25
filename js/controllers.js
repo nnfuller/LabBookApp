@@ -7,6 +7,8 @@ var labbookControllers = angular.module('labbookControllers', []);
 labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
   function($scope, $rootScope) {
     
+    chrome.app.window.current().maximize();
+    
     var styles = {
 
       //slide from right
@@ -45,15 +47,21 @@ labbookControllers.controller('SetUpCtrl', ['$scope',
   function($scope) {
     
   }]);
-labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
-  function($scope, Serial) {
-    $scope.data = [Serial.dataList];
-    $scope.points = [];
-    $scope.$watch('data', function(v) {
-      $scope.points.push(v[0][v[0].length-1]);
-    }, true);
-    $scope.lastValue = 0;
-    $scope.menushow =false;
+
+labbookControllers.controller('DataCtrl', ['$scope',
+  function($scope) {
+    //$scope.data = [];
+    //$scope.points = [];
+    //$scope.$watch('data', function(v) {
+    //  $scope.points.push(v[0][v[0].length-1]);
+    //}, true);
+    var port = chrome.runtime.connect({name: "serial"});
+    chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+      $scope.$apply(function () {
+        $scope.lastValue = parseInt(msg.split('T')[0].slice(1));
+      });
+    });
+    $scope.menushow = false;
     $scope.sensorType="volt";
     $scope.tCalib="32.0";
     $scope.vUnit = "V";
@@ -69,9 +77,7 @@ labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
     $scope.hideMenu = function() {
       $scope.menushow = false;
     }
-    $scope.setData = function() {
-      Serial.start(150);
-    }
+
     $scope.$watch('sensorType', function() {
       $scope.vShow = false;
       $scope.tShow = false;
