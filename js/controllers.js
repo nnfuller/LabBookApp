@@ -47,7 +47,7 @@ labbookControllers.controller('SetUpCtrl', ['$scope',
   function($scope) {
     
   }]);
-<<<<<<< HEAD
+
 labbookControllers.controller('DataCtrl', ['$scope',
   function($scope) {
     //$scope.data = [];
@@ -62,16 +62,6 @@ labbookControllers.controller('DataCtrl', ['$scope',
       });
     });
     $scope.menushow = false;
-=======
-labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
-  function($scope, Serial) {
-    $scope.data = [Serial.dataList];
-    $scope.points = [];
-    $scope.$watch('data', function(v) {
-      $scope.points.push(v[0][v[0].length-1]);
-    }, true);
-    $scope.lastValue = 0;
-    $scope.menushow =false;
     $scope.sensorType="volt";
     $scope.tCalib="32.0";
     $scope.vUnit = "V";
@@ -81,18 +71,13 @@ labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
     $scope.pUnit = "Pa";
     $scope.gUnit = "sec";
 
->>>>>>> origin/nathan
     $scope.showMenu = function() {
       $scope.menushow = true;
     }
     $scope.hideMenu = function() {
       $scope.menushow = false;
     }
-<<<<<<< HEAD
-=======
-    $scope.setData = function() {
-      Serial.start(150);
-    }
+
     $scope.$watch('sensorType', function() {
       $scope.vShow = false;
       $scope.tShow = false;
@@ -119,5 +104,4 @@ labbookControllers.controller('DataCtrl', ['$scope', 'Serial',
       $scope.gShow = true;
       }
     }, true);
->>>>>>> origin/nathan
   }]);
