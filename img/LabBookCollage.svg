@@ -1140,7 +1140,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.6251321"
      inkscape:cx="267.53642"
-     inkscape:cy="1572.2123"
+     inkscape:cy="1474.6563"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -4590,7 +4590,7 @@
        inkscape:connector-curvature="0" />
     <g
        id="g9995"
-       transform="matrix(0.82536793,0,0,0.69344771,13.055729,-220.29132)">
+       transform="matrix(0.82536793,0,0,0.69344771,11.456067,-221.89098)">
       <rect
          ry="6.797091"
          y="-702.95459"
@@ -4997,6 +4997,30 @@
            x="844.90002"
            id="tspan8012-4-3"
            sodipodi:role="line">Plot</tspan></text>
+    </g>
+    <g
+       id="g9995-7"
+       transform="matrix(0.82536793,0,0,0.69344771,-220.51966,-161.95124)">
+      <rect
+         ry="6.797091"
+         y="-702.95459"
+         x="807.57605"
+         height="73.05529"
+         width="155.72313"
+         id="rect8006-7-7"
+         style="opacity:0.98720015;fill:#fa311d;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text8010-7-2"
+         y="-575.46759"
+         x="937.40826"
+         style="font-size:35.23454285px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"
+         transform="scale(0.88086364,1.1352495)"><tspan
+           y="-575.46759"
+           x="937.40826"
+           id="tspan8012-4-2"
+           sodipodi:role="line">Trendline</tspan></text>
     </g>
   </g>
 </svg>
