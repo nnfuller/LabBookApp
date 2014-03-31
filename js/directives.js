@@ -20,7 +20,6 @@ labbookDirectives.directive('chart', function(){
           chart.setData(v);
           chart.setupGrid();
           chart.draw();
-          scope.lastValue = v[0][v[0].length-1][1];
         }
       }, true);
     }
