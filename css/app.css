@@ -279,12 +279,22 @@ src: url('Harabara.ttf');
 }
 
 chart {
-  top:125px;
   float:left;
-  left:50px;
   position:absolute;
+}
+
+#datagraph {
+  top:125px;
+  left:50px;
   width:800px;
   height:425px;
+}
+
+#homegraph {
+  top:65px;
+  left:20px;
+  width:510px;
+  height:325px;
 }
 
 #datatable {

@@ -9,6 +9,10 @@ labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
     
     chrome.app.window.current().maximize();
     
+    var value = 0,
+        split = [],
+        tempData = [];
+    
     var styles = {
 
       //slide from right
@@ -30,6 +34,23 @@ labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
     $scope.close = function() {
       window.close();
     }
+    
+    chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+      split = msg.split('T');
+      value = parseInt(split[0].slice(1));
+      
+      tempData.push([parseInt(split[1]),value]);
+      
+      if (tempData.length > 100) {
+        tempData.shift();
+      }
+      
+      $scope.streamData = [tempData];
+      
+      $scope.$apply(function () {
+        $scope.lastValue = value;
+      });
+    });
 
   }]);
 
@@ -55,12 +76,11 @@ labbookControllers.controller('DataCtrl', ['$scope',
     //$scope.$watch('data', function(v) {
     //  $scope.points.push(v[0][v[0].length-1]);
     //}, true);
-    var port = chrome.runtime.connect({name: "serial"});
-    chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
-      $scope.$apply(function () {
-        $scope.lastValue = parseInt(msg.split('T')[0].slice(1));
-      });
-    });
+    //chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+    //  $scope.$apply(function () {
+    //    $scope.lastValue = parseInt(msg.split('T')[0].slice(1));
+    //  });
+    //});
     $scope.menushow = false;
     $scope.sensorType="volt";
     $scope.tCalib="32.0";
