@@ -139,8 +139,8 @@ src: url('Harabara.ttf');
 	position:absolute;
 	left:0px;
 	top:0px;
-	width:1366px;
-	height:720px;
+	width:100%;
+	height:100%;
 	background-color:rgba(75,75,75,.5);
 }
 .basicconfigurediv {
@@ -243,13 +243,30 @@ src: url('Harabara.ttf');
 	height:40px;
 }
 #collectbutton.button {
+	border-color:#0aa010;
+	background:-webkit-linear-gradient(#0aa010,#09970f);
 	position:absolute;
 	right: 375px;
 	top:150px;
     width: 100px;
 	height: 40px;
 	margin:15px;
-
+}
+#collectbutton.button:hover {
+	border-color:#07760c;
+	box-shadow: 0px 1px 3px #888888;
+}
+#collectbutton.button:active {
+	background:-webkit-linear-gradient(#07760c,#09970f,#07760c);
+	border-color:#07760c;
+}
+#stopbutton.button {
+	position:absolute;
+	right: 375px;
+	top:150px;
+    width: 100px;
+	height: 40px;
+	margin:15px;
 }
 #sensorbutton.button {
 	position:absolute;
@@ -284,10 +301,10 @@ chart {
 }
 
 #datagraph {
-  top:125px;
-  left:50px;
   width:800px;
   height:425px;
+  left:50px;
+  top:125px;
 }
 
 #homegraph {
@@ -295,6 +312,14 @@ chart {
   left:20px;
   width:510px;
   height:325px;
+}
+
+series: {
+    lines, points, bars: {
+        lineWidth: 8;
+        fill: true;
+        fillColor: #07760c;
+    }
 }
 
 #datatable {

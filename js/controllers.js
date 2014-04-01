@@ -8,7 +8,7 @@ labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
   function($scope, $rootScope) {
     
     chrome.app.window.current().maximize();
-    
+
     var value = 0,
         split = [],
         tempData = [];
@@ -34,7 +34,7 @@ labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
     $scope.close = function() {
       window.close();
     }
-    
+
     chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
       split = msg.split('T');
       value = parseInt(split[0].slice(1));
@@ -76,11 +76,7 @@ labbookControllers.controller('DataCtrl', ['$scope',
     //$scope.$watch('data', function(v) {
     //  $scope.points.push(v[0][v[0].length-1]);
     //}, true);
-    //chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
-    //  $scope.$apply(function () {
-    //    $scope.lastValue = parseInt(msg.split('T')[0].slice(1));
-    //  });
-    //});
+    $scope.data = [ [ [0,0], [1,1], [2,2] ] ];
     $scope.menushow = false;
     $scope.sensorType="volt";
     $scope.tCalib="32.0";
@@ -96,6 +92,12 @@ labbookControllers.controller('DataCtrl', ['$scope',
     }
     $scope.hideMenu = function() {
       $scope.menushow = false;
+    }
+    $scope.startPlot = function() {
+      $scope.collect = true;
+    }
+    $scope.stopPlot = function() {
+      $scope.collect = false;
     }
 
     $scope.$watch('sensorType', function() {
