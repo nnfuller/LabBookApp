@@ -34,8 +34,11 @@
       	</table>
   	</div>
 
-	<button class="button" id="collectbutton" ng-click="setData()">
-		Plot
+	<button class="button" id="collectbutton" ng-click="startPlot()">
+		&#9658;  Plot
+	</button>
+	<button class="button" id="stopbutton" ng-click="stopPlot()" ng-show="collect">
+		&#9632;  Stop
 	</button>
   	<div class="graphdatadiv" style="top:550px; left:60px;">
 		<h3> 
