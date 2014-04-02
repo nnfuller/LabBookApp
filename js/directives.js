@@ -10,7 +10,35 @@ labbookDirectives.directive('chart', function(){
     link: function(scope, elem, attrs){
       
       var chart = null,
-          opts  = { };
+          opts  = { 
+            xaxis: {
+              font:{
+                color: "#000000"
+              },
+            },
+            yaxis: {
+              font:{
+                color: "#000000"
+              },
+            },
+            series: {
+              lines: { 
+                show: true,
+                lineWidth: 6,
+                fill: false,
+              },
+
+
+            },
+            grid: {
+              show: true,
+              backgroundColor: "#cccccc",
+              borderWidth: 30,
+              borderColor: "#cccccc",
+              minBorderMargin: 30,
+            },
+            colors:["#e52a20"]
+          };
       
       scope.$watch(attrs.ngModel, function(v){
         if(!chart){

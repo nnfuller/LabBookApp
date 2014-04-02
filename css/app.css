@@ -305,6 +305,7 @@ chart {
   height:425px;
   left:50px;
   top:125px;
+  color:#000000;
 }
 
 #homegraph {
@@ -312,14 +313,6 @@ chart {
   left:20px;
   width:510px;
   height:325px;
-}
-
-series: {
-    lines, points, bars: {
-        lineWidth: 8;
-        fill: true;
-        fillColor: #07760c;
-    }
 }
 
 #datatable {
