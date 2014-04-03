@@ -62,7 +62,6 @@ src: url('Harabara.ttf');
 	background-color:#ffffff;
 }
 #welcomepage {
-	background-image: url(/img/Labbookbackground.svg);
 	background-size: 100%;
 	/*left: 0%;*/
 }
@@ -281,17 +280,14 @@ src: url('Harabara.ttf');
 }*/
 
 #signinpage {
-	background-image: url(/img/Labbookbackground.svg) ;
 	/*left:100%;*/
 }
 
 #setuppage {
-	background-image: url(/img/Labbookbackground.svg);
 	/*left:100%;*/
 }
 
 #datapage {
-	background-image: url(/img/Labbookbackground.svg);
 	/*left:100%;*/
 }
 

@@ -2,28 +2,37 @@ void setup() {
   // initialize serial communication at 115200 bits per second:
   Serial.begin(115200);
 }
-int noisetollerance =600;
-  int aa1=analogRead(A0);
-  int aa2=analogRead(A0);
-  int aa3=analogRead(A0);
-  int aa4=analogRead(A0);
-  int aa5=analogRead(A0);
-  int errors;
+String port ="A0";
+int portnum=0;
 // the loop routine runs over and over again forever:
 void loop() {
-  // read the input on analog pin 0:
-  aa5 =aa4;
-  aa4 = aa3;
-  aa3 = aa2;
-  aa2 = aa1;
-  aa1 = analogRead(A0);
-  if (abs((aa1+aa2+aa3+aa4+aa5)/5-aa3)> noisetollerance){
-    aa3 = aa4;
-    errors = errors+1;
+  if (Serial.available() > 0) {
+    char response=Serial.read();
+    if (response >= '0' && response <= '4') {
+      int portnum= response-'0';
+    }
+    switch (portnum) {
+    case 0:
+    port ="A0";
+      break;
+    case 1:
+    port ="A1";
+      break;
+    case 2:
+    port ="A2";
+      break;
+    case 3:
+    port ="A3";
+      break;
+    case 4:
+    port ="A4";
+      break;
+    default: 
+    port ="A0";
   }
-  Serial.print("A");
-  Serial.print(aa5);
-  Serial.print("T");
-  Serial.println(millis());
-  delay(250);
+    Serial.print("A");
+    Serial.print(analogRead(A0));
+    Serial.print("T");
+    Serial.println(millis());
+  }
 }
