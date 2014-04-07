@@ -267,6 +267,14 @@ src: url('Harabara.ttf');
 	height: 40px;
 	margin:15px;
 }
+#copybutton.button {
+    position:absolute;
+    right: 375px;
+	top: 200px;
+    width: 100px;
+	height: 40px;
+	margin:15px;
+}
 #sensorbutton.button {
 	position:absolute;
 	left: 600px;

@@ -42,10 +42,10 @@ labbookDirectives.directive('chart', function(){
       
       scope.$watch(attrs.ngModel, function(v){
         if(!chart){
-          chart = $.plot(elem, v , opts);
+          chart = $.plot(elem, [v] , opts);
           elem.show();
         }else{
-          chart.setData(v);
+          chart.setData([v]);
           chart.setupGrid();
           chart.draw();
         }

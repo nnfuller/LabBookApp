@@ -10,8 +10,8 @@ labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
     chrome.app.window.current().maximize();
 
     var value = 0,
-        split = [],
-        tempData = [];
+        tempData = [],
+        split = [];
     
     var styles = {
 
@@ -37,19 +37,22 @@ labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
 
     chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
       split = msg.split('T');
-      value = parseInt(split[0].slice(1));
+      value = Math.round(parseInt(split[0].slice(1))*500/1024)/100;
       
-      tempData.push([parseInt(split[1]),value]);
+      $scope.$apply(function () {
+        $scope.lastValue = value.toFixed(2);
+      });
       
+      if (value != 0 || tempData.length > 0) {
+        tempData.push([parseInt(split[1]),value]);
+      }
+        
       if (tempData.length > 100) {
         tempData.shift();
       }
       
-      $scope.streamData = [tempData];
+      $scope.streamData = tempData;
       
-      $scope.$apply(function () {
-        $scope.lastValue = value;
-      });
     });
 
   }]);
@@ -71,12 +74,11 @@ labbookControllers.controller('SetUpCtrl', ['$scope',
 
 labbookControllers.controller('DataCtrl', ['$scope',
   function($scope) {
-    //$scope.data = [];
-    //$scope.points = [];
-    //$scope.$watch('data', function(v) {
-    //  $scope.points.push(v[0][v[0].length-1]);
-    //}, true);
-    $scope.data = [ [ [0,0], [1,1], [2,2] ] ];
+    var split = "",
+        start = 0;
+    $scope.copyReady = false;
+    $scope.points = [];
+    $scope.data = [];
     $scope.menushow = false;
     $scope.sensorType="volt";
     $scope.tCalib="32.0";
@@ -95,11 +97,34 @@ labbookControllers.controller('DataCtrl', ['$scope',
     }
     $scope.startPlot = function() {
       $scope.collect = true;
+      $scope.copyReady = false;
     }
     $scope.stopPlot = function() {
       $scope.collect = false;
+      $scope.points = $scope.data;
+      $scope.copyReady = true;
+    }
+    $scope.saveData = function() {
+      var exportData = "Time\tValue\n";
+        
+      for (var i=0;i<$scope.data.length;i++) {
+        exportData += $scope.data[i][0].toString()+'\t'+$scope.data[i][1].toString()+'\n';
+      }
+      
+      var holder = $('#holder').val("Test message").select();
+      document.execCommand("copy");
     }
 
+    chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+      if ($scope.collect) {
+        split = msg.split('T');
+        if (!$scope.data[0]) {
+          start = parseInt(split[1]);
+        }
+        $scope.data.push([parseInt(split[1])-start,(Math.round(parseInt(split[0].slice(1))*500/1024)/100).toFixed(2)]);
+      }
+    });
+    
     $scope.$watch('sensorType', function() {
       $scope.vShow = false;
       $scope.tShow = false;

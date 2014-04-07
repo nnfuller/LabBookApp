@@ -40,9 +40,12 @@
 	<button class="button" id="stopbutton" ng-click="stopPlot()" ng-show="collect">
 		&#9632;  Stop
 	</button>
+    <button class="button" id="copybutton" ng-click="saveData()" ng-show="copyReady">
+		Copy
+	</button>
   	<div class="graphdatadiv" style="top:550px; left:60px;">
 		<h3> 
-			{{lastValue}}
+			{{lastValue}} V
 		</h3>
 	</div>
 	<button class="button" id="sensorbutton" ng-click="showMenu()">
@@ -135,3 +138,5 @@
 			</div>
   	</div>
 </div>
+
+<textarea id="holder" style="display:none;"></textarea>
