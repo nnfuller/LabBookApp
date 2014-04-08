@@ -304,6 +304,11 @@ chart {
   position:absolute;
 }
 
+stream {
+  float:left;
+  position:absolute;
+}
+
 #datagraph {
   width:800px;
   height:425px;

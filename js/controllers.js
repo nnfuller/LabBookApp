@@ -10,6 +10,7 @@ labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
     chrome.app.window.current().maximize();
 
     var value = 0,
+        time = 0,
         tempData = [],
         split = [];
     
@@ -33,18 +34,26 @@ labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
 
     $scope.close = function() {
       window.close();
+      chrome.runtime.getBackgroundPage(function(page) {
+        page.cleanup();
+      });
     }
 
     chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
       split = msg.split('T');
       value = Math.round(parseInt(split[0].slice(1))*500/1024)/100;
+      time = parseInt(split[1]);
       
       $scope.$apply(function () {
         $scope.lastValue = value.toFixed(2);
       });
       
+      if (tempData.length > 0 && time < tempData[0][0]) {
+        tempData = [];
+      }
+      
       if (value != 0 || tempData.length > 0) {
-        tempData.push([parseInt(split[1]),value]);
+        tempData.push([time,value]);
       }
         
       if (tempData.length > 100) {
@@ -96,6 +105,7 @@ labbookControllers.controller('DataCtrl', ['$scope',
       $scope.menushow = false;
     }
     $scope.startPlot = function() {
+      $scope.data = [];
       $scope.collect = true;
       $scope.copyReady = false;
     }
