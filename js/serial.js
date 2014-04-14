@@ -1,5 +1,5 @@
 chrome.app.runtime.onLaunched.addListener(function() {
-  startup();
+  //startup();
 });
 
 var tempConnectionID = 0,
@@ -31,7 +31,7 @@ var onConnect = function(connectionInfo) {
 var onReceiveErrorCallback = function(info) {
   console.log("Device lost. Reconnecting...");
   cleanup();
-  startup();
+  //startup();
 }
 
 var onDisconnect = function() {

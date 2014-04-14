@@ -35,7 +35,7 @@ labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
     $scope.close = function() {
       window.close();
       chrome.runtime.getBackgroundPage(function(page) {
-        page.cleanup();
+        //page.cleanup();
       });
     }
 
@@ -60,7 +60,7 @@ labbookControllers.controller('MainCtrl', ['$scope', '$rootScope',
         tempData.shift();
       }
       
-      $scope.streamData = tempData;
+      //$scope.streamData = tempData;
       
     });
 

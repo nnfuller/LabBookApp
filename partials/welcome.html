@@ -1,10 +1,16 @@
 <div id="welcomepage" class="pagediv active">
- <div class="logo">
+<div class="topbar">
+<div class="logo">
 <img src="\img\Labbook Logo.svg" >
 </div>
-<hr noshade size=4 width="95%">
+</div>
 <img src="\img\Close.svg" class="close-button" ng-click="close()" title="Close">
 
+<stream id = "homegraph" ng-model="streamData"></stream>
+<a href="#/data" id="homestart" class="button" ng-click="setDir('front')">
+	Start
+</a>
+<!--
  <div class="homediv">
 	<a href="#/data" ng-click="setDir('front')">
 		<img src="\img\CollectICOop.svg" class="icon" >
@@ -29,3 +35,4 @@
 	</div>
 
 </div>
+-->

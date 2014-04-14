@@ -3,7 +3,6 @@
 /* Directives */
 
 var labbookDirectives = angular.module('labbookDirectives', []);
-
 labbookDirectives.directive('chart', function(){
   return{
     restrict: 'E',
@@ -76,26 +75,25 @@ labbookDirectives.directive('stream', function(){
                 show: true,
                 lineWidth: 6,
                 fill: false,
+                borderColor: null,
+                clickable: true,
               },
 
 
             },
             grid: {
               show: true,
-              backgroundColor: "#cccccc",
-              borderWidth: 30,
-              borderColor: "#cccccc",
-              minBorderMargin: 30,
+              backgroundColor: null,
             },
             colors:["#e52a20"]
           };
       
       scope.$watch(attrs.ngModel, function(v){
         if(!chart){
-          chart = $.plot(elem, [v] , opts);
+          chart = $.plot(elem, [[[0,0],[1,1],[2,1],[3,0]]] , opts);
           elem.show();
         }else{
-          chart.setData([v]);
+          chart.setData([[[0,0],[1,1],[2,1],[3,0]]]);
           chart.setupGrid();
           chart.draw();
         }
