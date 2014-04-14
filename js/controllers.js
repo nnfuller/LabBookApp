@@ -115,23 +115,22 @@ labbookControllers.controller('DataCtrl', ['$scope',
       $scope.copyReady = true;
     }
     $scope.saveData = function() {
-      var exportData = "Time\tValue\n";
-        
-      for (var i=0;i<$scope.data.length;i++) {
-        exportData += $scope.data[i][0].toString()+'\t'+$scope.data[i][1].toString()+'\n';
-      }
-      
-      var holder = $('#holder').val("Test message").select();
-      document.execCommand("copy");
+      chrome.runtime.getBackgroundPage(function(page) {
+        page.startAuth($scope.data);
+      });
     }
 
     chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
-      if ($scope.collect) {
-        split = msg.split('T');
-        if (!$scope.data[0]) {
-          start = parseInt(split[1]);
+      if (msg=="disconnect" && $scope.collect) {
+        $scope.stopPlot();
+      } else {
+        if ($scope.collect) {
+          split = msg.split('T');
+          if (!$scope.data[0]) {
+            start = parseInt(split[1]);
+          }
+          $scope.data.push([parseInt(split[1])-start,(Math.round(parseInt(split[0].slice(1))*500/1024)/100).toFixed(2)]);
         }
-        $scope.data.push([parseInt(split[1])-start,(Math.round(parseInt(split[0].slice(1))*500/1024)/100).toFixed(2)]);
       }
     });
     

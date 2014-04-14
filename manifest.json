@@ -2,10 +2,23 @@
   "manifest_version": 2,
   "name": "LabBook",
   "version": "0.0.1",
-  "permissions": ["serial", "clipboardWrite", {"fileSystem": ["write", "retainEntries", "directory"]}, "storage"],
+  "key": "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCuikWkydGfiXEZP0kTXKBh9TNUC7BWzIqQzJ27bIulrGtFuIxF925rn/6aJUysqWjGb5p2a4IZrqsQkZuu18o2N8k7uU3jn2pNWttR4QFaD6E1H54KuheRz7FWPGpfahvCTL56IClIdtCJFkW2NyWyd/Fgp724fxOfinnDUzehdg0YPVJzVO8kWbmMXtSHiyKdFq/PyHcIEhhFWC64qYo27G7krUZFjnTmzke38WQ92V+bl4m80+eUksL7jTigi3fGpK6lLceg2wNgfy9N4LVN/UdFUN6xbbPzMtGoHDaQlD70w0T61xonR5+Mrmz5Hu9cD2gdLNEz2bOzmnCZllzVAgMBAAECggEAB9R0I1xaZwnHZRaNtKynFT3mu5J6qqoqXSyQtuO7sAb4GPyablkXPwTCay/ZLLW82YoQJ9fS0kwfqHKfxUww6hW+lUtOzzNLlYTJ6fZqFRw2Yyez808913C1x+SV8QnVjPXcZaYjs/iAimXRYsc+ja8LyQY9YJVyz+lqZPTKvhd2rvOoLLktKo9nQ7pUGWNXrUR8atbjCaafe4FHlKpHM4Yv9zE4yJ+J9fQk6Mn7q9/zDOs0Oga3gtpiwyNwfdNPUD5w5xlxpAbcuo9OVXLhheYg+z6w5hF2/8p3kRpbeCZ5qOzjXxvOwUDiLRAkqeBeFL9Gt4nK8jow3quf1eyHUQKBgQDXPIrs24z1isEO0f6WRheZaLQkyRNYG2INEeIPzYoCgLScHSZcc3acibcrW+U3wRkbK3A29CuNDwJR0Qx0z3e3h3NQvVdmJEaDwmhpDJhnpH+u1vItzyOzi47B3yAg9FBn7YnVGc+KI4gWPAVPszhDi19L1qPUnsmQfaWAWtDVvwKBgQDPmJ6erk2Ose1+OKt9q7sxYU0mbSsH49Xo4eScfDO+POOUUE4khcmZ41m8Jc8ualL+s+Arqsu/CyVfnkuB4MSWfWK5uPYC+C66tGCJPKYV3cQMpLuso2OuyyB1384PH2eOolgPv6oOWtrA35wTsW+OdgMNZuHvWFwlOb673ZB6awKBgQDPd1EmHD6UE8ohgfMXYLqwqccyygr2W3a4yGsR9no4DV2KOWLXrIhBPVGs3qhkhKGxmb5RiixMjJIc0RdjpPNtmYdi5Q9Qqli5+nNwBq8E////RLstwsNT9oqFf5BVk4nJk6LPIVD2g2dSn0ozV7o9CSOzU1KZyPDbcPFNdrxjuwKBgAdfzIKmfmrLNzx8ltrn9sZSRoNO7XBiT37uR0inwM7JKuxhzeTOO9MTmGRuk2V6sWgKy7PBZWtr4e/7l4MNkO4nlhIy18pTNpW7QpKdbOjp78TjNSd0xl23KXgGczNmUi9m5OnqTQglgg/H4atxah0NZB5dwTjXUq6f1n6l6DPxAoGBAM7+x1mDpmEhY23m2P5zvuFODwo0Ax6AojLY48H54fvL35aEBRX0/FvbJLIRjYLur0MvIkXjpbwgOnNnnSJsZStEQk+EtT9HXZwp/bbVEt/xz5rK9jOOetYt/EDyaezjbp+m03/gTzTH9+znZgVI8DHpNydJ9aD7A4W3eKuT8fTy",
+  "oauth2": {
+    "client_id": "923286628984-gtrm01hmn9bq22rucdgrrdurnst10btv.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive",
+      "https://spreadsheets.google.com/feeds"
+    ]
+  },
+  "permissions": ["identity", "serial", "clipboardWrite", {"fileSystem": ["write", "retainEntries", "directory"]}, "storage",
+    "https://docs.google.com/feeds/",
+    "https://docs.googleusercontent.com/",
+    "https://spreadsheets.google.com/feeds/",
+    "https://ssl.gstatic.com/",
+    "https://www.googleapis.com/"],
   "app": {
     "background": {
-      "scripts": ["/js/start.js", "/js/serial.js"]
+      "scripts": ["/js/start.js", "/js/serial.js", "/js/drive.js"]
     }
   },
   "icons":  

@@ -30,6 +30,7 @@ var onConnect = function(connectionInfo) {
 
 var onReceiveErrorCallback = function(info) {
   console.log("Device lost. Reconnecting...");
+  chrome.runtime.sendMessage("disconnect");
   cleanup();
   startup();
 }
