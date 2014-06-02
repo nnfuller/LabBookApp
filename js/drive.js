@@ -1,9 +1,11 @@
 var token = null,
-    data = [];
+    data = "",
+    header;
 
-var startAuth = function(d) {
+var startAuth = function(d, h) {
   data = d;
-  chrome.identity.getAuthToken({ 'interactive': true }, handleToken);
+  header = h;
+  chrome.identity.getAuthToken({'interactive': true}, handleToken);
 }
 
 var handleToken = function(t) {
@@ -27,10 +29,13 @@ var createSheet = function() {
         'mimeType': 'text/csv'
       };
   
-  var content = "Time,Value,,,,,,,,,,,,,,,,,,,,,,,,\n";
+  var content = header + ",,,,,,,,,,,,,,,,,,,,,,,,,,\n";
   
   for (var i=0;i<data.length;i++) {
-    content += data[i][0] + ","+ data[i][1] + "\n";
+    for (var j=0;j<data[i].length;j++) {
+      content += data[i][j] + ",";
+    }
+    content += "\n";
   }
   
   var multipartRequestBody =
@@ -48,7 +53,7 @@ var createSheet = function() {
   xhr.send(multipartRequestBody);
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
-      console.log(xhr.response);
+      port.postMessage({alert: {upload: true, name: JSON.parse(xhr.response).ownerNames[0]}});
     }
   }
-};
+}

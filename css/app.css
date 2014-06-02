@@ -73,15 +73,17 @@ src: url('Harabara.ttf');
 }
 .logo {
 	position: absolute;
-	top:15px;
-	width: 300px;
+	top:15%;
+	width: auto;
 	left: 10px;
-	height: 75px;
+	height: 70%;
 }
-
-#logo {
-	height:90%;
-	width:auto;
+.back {
+	position: absolute;
+	top:2%;
+	width: auto;
+	right: 6%;
+	height: 8%;
 }
 #homestart.button {
 	position:absolute;
@@ -91,7 +93,7 @@ src: url('Harabara.ttf');
 	height: 10%;
 	margin:15px;
 	border-radius:10px;
-	font-size: 200%;
+	font-size: 5vh;
 	font-weight: bolder;
 	font-family: Harabara;
 	letter-spacing: 1pt;
@@ -131,13 +133,11 @@ src: url('Harabara.ttf');
 }
 .graphdatadiv {
 	position:absolute;
-    width: 502px;
-	height: 100px;
+	right:10%;
+	top:75%;
+    width: 80%;
+	height: 82%;
 	margin:20px;
-	border-color:rgba(175,175,175,1);
-	border:4px solid;
-	background-color:rgba(250,250,250,1);
-	border-radius:2px;
 }
 .toprightbardiv {
 	position:absolute;
@@ -151,9 +151,9 @@ src: url('Harabara.ttf');
 .basictablediv {
 	position:absolute;
 	right: 20px;
-	top:150px;
+	top:13%;
     width: 300px;
-	height: 500px;
+	height: 75%;
     overflow-y: scroll;
 	margin:15px;
 	background-color:rgba(250,250,250,1);
@@ -245,12 +245,32 @@ src: url('Harabara.ttf');
 	border-radius:2px; 
 	text-align: center;
 }
+.uploaddiv{
+	position:absolute;
+	width: 400px;
+	height:400px;
+	margin:30px;
+	top:75px;
+	left:0px;
+	background-color: rgba(75,75,75,.3);
+	border-radius:2px;
+}
+.savelocaldiv{
+	position:absolute;
+	width: 400px;
+	height:400px;
+	margin:30px;
+	top:75px;
+	right:0px;
+	background-color: rgba(75,75,75,.3);
+	border-radius:2px;
+}
 .button {
 	border:2px solid;
 	border-color:#e52a20;
 	background:-webkit-linear-gradient(#e52a20,#ce2118);
 	border-radius:2px;
-	font-size: 12pt;
+	font-size: 2vh;
 	font-weight: bolder;
 	font-family: Harabara;
 	letter-spacing: 0pt;
@@ -273,9 +293,9 @@ src: url('Harabara.ttf');
 	background:-webkit-linear-gradient(#0aa010,#09970f);
 	position:absolute;
 	right: 375px;
-	top:150px;
-    width: 100px;
-	height: 40px;
+	top:20%;
+	width: 6%;
+	height: 6%;
 	margin:15px;
 }
 #collectbutton.button:hover {
@@ -289,26 +309,26 @@ src: url('Harabara.ttf');
 #stopbutton.button {
 	position:absolute;
 	right: 375px;
-	top:150px;
-    width: 100px;
-	height: 40px;
+	top:20%;
+    width: 6%;
+	height: 6%;
 	margin:15px;
 }
 #copybutton.button {
     position:absolute;
     right: 375px;
-	top: 200px;
-    width: 100px;
-	height: 40px;
+	top: 28%;
+    width: 6%;
+	height: 6%;
 	margin:15px;
 }
 #sensorbutton.button {
 	position:absolute;
-	left: 600px;
-	top:580px;
-    width: 220px;
-	height: 60px;
-	margin:15px;
+	left: 25%;
+	bottom:6%;
+    width: 20%;
+	height: 8%;
+	font-size:2.5vh;
 }
 /*.homediv:hover {
 	background-color:rgba(175,175,175,.5);
@@ -329,6 +349,9 @@ src: url('Harabara.ttf');
 chart {
   float:left;
   position:absolute;
+  width:60%;
+  height:70%;gr
+  
 }
 
 stream {
@@ -337,20 +360,42 @@ stream {
 }
 
 #datagraph {
-  width:800px;
-  height:425px;
-  left:50px;
-  top:125px;
-  color:#000000;
+  width:65%;
+  height:72%;
+  left:1%;
+  top:14%;
+  color:#FF00ff;
+}
+
+#datagreyout {
+  position: absolute;
+  width:65%;
+  height:72%;
+  left:1%;
+  top:14%;
+  background-color:#CCCCCC;
+  z-index: 999999;
+  color: #333333;
 }
 
 #homegraph {
   position: absolute;
   top:13%;
-  width:100%;
+  width:98%;
   height:72%;
   margin-left:auto;
   margin-right:auto;
+}
+#homegreyout {
+  position: absolute;
+  top:13%;
+  width:98%;
+  height:72%;
+  margin-left:auto;
+  margin-right:auto;
+  background-color:#CCCCCC;
+  z-index: 999999;
+  color: #333333;
 }
 
 #datatable {
@@ -369,4 +414,28 @@ stream {
   border: 1px solid #000000;
   border-left: none;  
   background-color: #ffffff;
+}
+
+.view-animate-container {
+  position:relative;
+  height:100%;
+  overflow:hidden;
+}
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+  -webkit-transition: 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000) all;
+  transition: 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000) all;
+
+  display:block;
+  width:100%;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.view-animate.ng-enter.ng-enter-active {
+  left:0;
 }

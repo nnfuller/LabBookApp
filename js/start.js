@@ -4,11 +4,13 @@
  * @see http://developer.chrome.com/apps/app.window.html
  */
 chrome.app.runtime.onLaunched.addListener(function() {
-  chrome.app.window.create('index.html', {
-    width: 1366,
-    height: 720,
-    frame: 'none'
+  chrome.system.display.getInfo(function(info) {
+	chrome.app.window.create('index.html', {
+	  width: info[0].workArea.width,
+	  height: info[0].workArea.height,
+	  frame: 'none',
+	  resizable: false
+	});
   });
-
 });
 

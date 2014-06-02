@@ -10,7 +10,7 @@
       "https://spreadsheets.google.com/feeds"
     ]
   },
-  "permissions": ["identity", "serial", "clipboardWrite", {"fileSystem": ["write", "retainEntries", "directory"]}, "storage",
+  "permissions": ["identity", "serial", "system.display", {"fileSystem": ["write", "retainEntries", "directory"]}, "storage", "alarms",
     "https://docs.google.com/feeds/",
     "https://docs.googleusercontent.com/",
     "https://spreadsheets.google.com/feeds/",
@@ -18,7 +18,7 @@
     "https://www.googleapis.com/"],
   "app": {
     "background": {
-      "scripts": ["/js/start.js", "/js/serial.js", "/js/drive.js"]
+      "scripts": ["/lib/parser/parser.js", "/js/start.js", "/js/serial.js", "/js/data.js", "/js/drive.js"]
     }
   },
   "icons":  

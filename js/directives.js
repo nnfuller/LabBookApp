@@ -16,6 +16,8 @@ labbookDirectives.directive('chart', function(){
               },
             },
             yaxis: {
+              min: 0,
+              max: 50,
               font:{
                 color: "#000000"
               },
@@ -31,20 +33,20 @@ labbookDirectives.directive('chart', function(){
             },
             grid: {
               show: true,
-              backgroundColor: "#cccccc",
-              borderWidth: 30,
-              borderColor: "#cccccc",
-              minBorderMargin: 30,
+              //backgroundColor: "#cccccc",
+              //borderWidth: 30,
+              //borderColor: "#cccccc",
+              //minBorderMargin: 30,
             },
             colors:["#e52a20"]
           };
       
       scope.$watch(attrs.ngModel, function(v){
         if(!chart){
-          chart = $.plot(elem, [v] , opts);
+          chart = $.plot(elem, v , opts);
           elem.show();
         }else{
-          chart.setData([v]);
+          chart.setData(v);
           chart.setupGrid();
           chart.draw();
         }
@@ -66,6 +68,8 @@ labbookDirectives.directive('stream', function(){
               },
             },
             yaxis: {
+              min: 0,
+              max: 100,
               font:{
                 color: "#000000"
               },
@@ -90,10 +94,10 @@ labbookDirectives.directive('stream', function(){
       
       scope.$watch(attrs.ngModel, function(v){
         if(!chart){
-          chart = $.plot(elem, [[[0,0],[1,1],[2,1],[3,0]]] , opts);
+          chart = $.plot(elem, v, opts);
           elem.show();
         }else{
-          chart.setData([[[0,0],[1,1],[2,1],[3,0]]]);
+          chart.setData(v);
           chart.setupGrid();
           chart.draw();
         }

@@ -1,35 +1,25 @@
 <div id="datapage" class="pagediv">
 	
 	</div>
-
-	<div class="logo">
-		<img src="\img\Labbook Logo.svg" />
-	</div>
+<div class="topbar">
+<img class="logo" src="\img\Labbook Logo.svg" >
+</div>
 	<img src="\img\Close.svg" class="close-button" ng-click="close()" title="Close">
-	<div class="toprightbardiv">
 		<a href="#/welcome" ng-click="setDir('back')">
- 			<img src="\img\Back.svg" style="height:50px; width:auto;" />
+ 			<img src="\img\Back.svg" class="back" />
 		</a>
-	</div>
 	<div style="top:300px;left:75%;">{{test}}</div>
 	<div class="basictablediv">
-
-  		<!--<div style="
-  		position:absolute;
-		right: 0px;
-		top:0px;
-    	width: 300px;
-    	height: 40px;
-    	background:-webkit-linear-gradient(#e52a20,#ce2118);">
-  		</div>-->
   		<table id="datatable">
         	<tr>
-        		<th>Time</th>
-        		<th>Value</th>
+        		<th ng-repeat="label in labels">
+        			{{label}}
+        		</th>
         	</tr>
         	<tr ng-repeat="point in points">
-          		<td>{{point[0]}}</td>
-          		<td>{{point[1]}}</td>
+          		<td ng-repeat="value in point track by $index">
+          			{{value}}
+          		</td>
         	</tr>
       	</table>
   	</div>
@@ -40,19 +30,23 @@
 	<button class="button" id="stopbutton" ng-click="stopPlot()" ng-show="collect">
 		&#9632;  Stop
 	</button>
-    <button class="button" id="copybutton" ng-click="saveData()" ng-show="copyReady">
-		Upload
+    <button class="button" id="copybutton" ng-click="copyData()" ng-show="copyReady">
+		Save/Upload
 	</button>
-  	<div class="graphdatadiv" style="top:550px; left:60px;">
-		<h3> 
-			{{lastValue}} V
-		</h3>
-	</div>
 	<button class="button" id="sensorbutton" ng-click="showMenu()">
 		Configure Sensor
 	</button>
 
+	<div id="datagreyout" ng-show="datagrey">
+		<h4>{{msg.title}}</h4>
+		<p>{{msg.para}}</p>
+	</div>
 	<chart id = "datagraph" ng-model="data"></chart>
+	<div class="graphdatadiv">
+		<h3> 
+			{{lastValue}} cm
+		</h3>
+	</div>
 <div class="greyout" ng-show="menushow">
 	<div class="basicconfigurediv">
 		<h1 style="margin:30px;"><br>Sensor Configure</h1>
@@ -137,6 +131,26 @@
 			<input type="text" ng-model="gCalib"> in {{gUnit}}
 			</div>
   	</div>
+</div>
+
+
+<div class="greyout" ng-show="copyshow">
+	<div class="basicconfigurediv">
+		<h1 style="margin:30px;"><br>Save / Upload Data</h1>
+		<img src="\img\Close.svg" class="close-button" title="Close" ng-click="hideCopy()">
+		<div class="uploaddiv">
+			<button class="button" ng-click="uploadData()">
+				Upload to Drive
+			</button>
+			<p>{{uploaddonemsg}}</p>
+		</div>
+		<div class="savelocaldiv">
+			<button class="button" ng-click="saveData()">
+				Save as CSV
+			</button>
+			<p>{{localdonemsg}}</p>
+		</div>
+	</div>
 </div>
 
 <textarea id="holder" style="display:none;"></textarea>

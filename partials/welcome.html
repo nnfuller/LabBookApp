@@ -6,6 +6,10 @@
 </div>
 <img src="\img\Close.svg" class="close-button" ng-click="close()" title="Close">
 
+<div id="homegreyout" ng-show="homegrey">
+	<h4>{{msg.title}}</h4>
+	<p>{{msg.para}}</p>
+</div>
 <stream id = "homegraph" ng-model="streamData"></stream>
 <a href="#/data" id="homestart" class="button" ng-click="setDir('front')">
 	Start
